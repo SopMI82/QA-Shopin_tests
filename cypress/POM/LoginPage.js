@@ -2,20 +2,20 @@ import config from '../fixtures/config.json'
 
 class LoginPage {    
     
-    get loginPageBtn() {
-        return cy.get('a[aria-label="Login"]')
+    get loginPageBtnClick() {
+        return cy.get('a[aria-label="Login"]').click()
     }
 
     get userNameInput() {
-        return cy.get('.u-column1 > .woocommerce-form > :nth-child(1) > [name="username"]')
+        return cy.get('.u-column1 > .woocommerce-form > :nth-child(1) > [name="username"]').type(config.validUsername)
     }
 
     get passwordInput() {
-        return cy.get(':nth-child(2) > .password-input > [name="password"]')
+        return cy.get(':nth-child(2) > .password-input > [name="password"]').type(config.validPassword)
     }
     
-    get loginBtn() {
-        return cy.get('[name="login"]')
+    get loginBtnClick() {
+        return cy.get('[name="login"]').click()
     }
 
     get userAccount() {

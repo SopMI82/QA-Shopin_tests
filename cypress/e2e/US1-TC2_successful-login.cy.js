@@ -17,10 +17,10 @@ describe("Se connecter en tant qu'utilisateur", () => {
         homePage.visitHomePage;
 
         // Fermer la notification de la boutique WooCommerce
-        homePage.closeBtnDemoBanner.click();
+        homePage.closeBtnDemoBanner;
 
         // Accepter les cookies si la bannière est présente
-        homePage.cookiesAccept.click();
+        homePage.cookiesAccept;
     })
 
     // Identifiants de test pour la connexion
@@ -30,19 +30,19 @@ describe("Se connecter en tant qu'utilisateur", () => {
     it('Se connecter avec des identifiants valides Cas Passant:', () => {
         // Aller à la page de connexion
         //cy.get('a[aria-label="Login"]').click();
-        loginPage.loginPageBtn.click();
+        loginPage.loginPageBtnClick;
 
         // Saisir le nom d'utilisateur
         //cy.get('.u-column1 > .woocommerce-form > :nth-child(1) > [name="username"]').type(username);
-        loginPage.userNameInput.type(config.validUsername);
+        loginPage.userNameInput;
 
         // Saisir le mot de passe
         //cy.get(':nth-child(2) > .password-input > [name="password"]').type(password);
-        loginPage.passwordInput.type(config.validPassword)
+        loginPage.passwordInput;
 
         // Envoyer le formulaire de connexion
         //cy.get('[name="login"]').click();
-        loginPage.loginBtn.click()
+        loginPage.loginBtnClick;
         // Vérifier que la page de compte s'affiche après connexion
         //cy.get('.page-title').should('have.text', 'Mon compte');
         loginPage.userAccount.should('contain.text', config.validUsername)
