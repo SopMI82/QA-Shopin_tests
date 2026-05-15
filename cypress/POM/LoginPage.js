@@ -26,7 +26,7 @@ class LoginPage {
         return cy.get('.woocommerce-error > li > :nth-child(1)')
     }
 
-    get userNameEmptyMessage() {
+    get userNameAndPasswordEmptiesMessage() {
         return cy.get('.woocommerce-error > li')
     }
 
