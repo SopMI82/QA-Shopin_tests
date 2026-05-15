@@ -3,7 +3,7 @@ import config from '../fixtures/config.json'
 class HomePage {
     
     get visitHomePage() {
-        return cy.visit(config.baseUrl);
+        return cy.visit("/");
     }    
     
     get closeBtnDemoBanner() {

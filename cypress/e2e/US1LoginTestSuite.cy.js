@@ -78,7 +78,7 @@ describe("Se connecter en tant qu'utilisateur", () => {
 
     });
 
-    it('Essai de connexion avec un username vide et un password vide - Cas Non Passant', () => {
+    it.only('Essai de connexion avec un username vide et un password vide - Cas Non Passant', () => {
         loginPage.loginPageBtnClick;
         loginPage.loginBtnClick;
         loginPage.userNameAndPasswordEmptiesMessage.should('contain.text', "Error: Username is required")
