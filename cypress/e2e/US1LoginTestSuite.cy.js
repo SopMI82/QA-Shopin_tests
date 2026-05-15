@@ -31,7 +31,7 @@ describe("Se connecter en tant qu'utilisateur", () => {
     //var username = 'sophie'
     //var password = 'Omaima2026'
 
-    it('Essai de connexion avec des identifiants valides - Cas Passant', () => {
+    it('Essai de connexion avec des identifiants valides avec message de connexion non conforme - Cas Passant', () => {
         // Aller à la page de connexion
         //cy.get('a[aria-label="Login"]').click();
         loginPage.loginPageBtnClick;
@@ -49,10 +49,27 @@ describe("Se connecter en tant qu'utilisateur", () => {
         loginPage.loginBtnClick;
         // Vérifier que la page de compte s'affiche après connexion
         //cy.get('.page-title').should('have.text', 'Mon compte');
-        loginPage.userValidAccountMessage.should('contain.text', "Hello "+config.validUsername)
+        loginPage.userValidAccountMessage.should('contain.text', config.validUsername)
     })
 
-    it('Essai de connexion avec un username valide et password invalide - Cas Non passant', () => {
+    it("Essai de connexion avec des identifiants valides et le message d'erreur spécifié dans le cahier des charges- Cas Passant", () => {
+        // Aller à la page de connexion
+        loginPage.loginPageBtnClick;
+
+        // Saisir le nom d'utilisateur
+        loginPage.userNameInput.type(config.validUsername);
+
+        // Saisir le mot de passe
+        loginPage.passwordInput.type(config.validPassword);
+
+        // Envoyer le formulaire de connexion
+        loginPage.loginBtnClick;
+
+        // Vérifier que la page de compte s'affiche après connexion
+        loginPage.userValidAccountMessage.should('contain.text', "Bonjour "+config.validUsername+ ", heureux de vous retrouver ! N'hésitez pas à regarder nos nouveautés.")
+    })
+
+    it('Essai de connexion avec un username valide et un password invalide - Cas Non passant', () => {
         loginPage.loginPageBtnClick;
         loginPage.userNameInput.type(config.validUsername);
         loginPage.passwordInput.type(config.invalidPassword);
@@ -64,6 +81,6 @@ describe("Se connecter en tant qu'utilisateur", () => {
     it('Essai de connexion avec un username vide et un password vide - Cas Non Passant', () => {
         loginPage.loginPageBtnClick;
         loginPage.loginBtnClick;
-        loginPage.userNameEmptyMessage.should('contain.text', "Error: Username is required")
+        loginPage.userNameAndPasswordEmptiesMessage.should('contain.text', "Error: Username is required")
     })
 })
