@@ -11,7 +11,8 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "cypress": "^15.15.0"
+    "cypress": "^15.15.0",
+    "cypress-xpath": "^2.0.1"
   },
   "dependencies": {
     "cypress-mochawesome-reporter": "^4.0.2"
