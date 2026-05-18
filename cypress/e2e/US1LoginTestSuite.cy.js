@@ -53,6 +53,8 @@ describe("Se connecter en tant qu'utilisateur", () => {
     })
 
     it("Essai de connexion avec des identifiants valides et le message d'erreur spécifié dans le cahier des charges- Cas Passant", () => {
+        // Ce test est fait pour échouer volontairement afin de vérifier que le message d'erreur affiché après connexion est conforme à celui spécifié dans le cahier des charges
+        
         // Aller à la page de connexion
         loginPage.loginPageBtnClick;
 
@@ -78,7 +80,7 @@ describe("Se connecter en tant qu'utilisateur", () => {
 
     });
 
-    it.only('Essai de connexion avec un username vide et un password vide - Cas Non Passant', () => {
+    it('Essai de connexion avec un username vide et un password vide - Cas Non Passant', () => {
         loginPage.loginPageBtnClick;
         loginPage.loginBtnClick;
         loginPage.userNameAndPasswordEmptiesMessage.should('contain.text', "Error: Username is required")

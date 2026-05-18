@@ -1,7 +1,18 @@
 class BasePage {
 
-    clickElement(locator){
-        return cy.get(locator).click()
+     clickElement(selector) {
+        return cy.get(selector).click();
+    }
+
+    typeText(selector, text) {
+        return cy.get(selector).clear().type(text);
+    }
+
+    getElement(selector) {
+        return cy.get(selector);
+    }
+    goToUrl(url) {
+        return cy.visit(url);
     }
 
 }

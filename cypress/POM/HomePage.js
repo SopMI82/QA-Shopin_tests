@@ -1,17 +1,21 @@
 import config from '../fixtures/config.json'
+import BasePage from "./BasePage";
 
-class HomePage {
+class HomePage extends BasePage {
     
     get visitHomePage() {
-        return cy.visit("/");
+         return cy.visit("/");
+           
     }    
     
     get closeBtnDemoBanner() {
-        return cy.get('.woocommerce-store-notice__dismiss-link').click()
+        return this.clickElement('.woocommerce-store-notice__dismiss-link');
+       // return cy.get('.woocommerce-store-notice__dismiss-link').click()
     }
 
     get cookiesAccept() {
-        return cy.get('.ct-cookies-accept-button', { timeout: 10000 }).click()
+         return this.clickElement('.ct-cookies-accept-button');
+       // return cy.get('.ct-cookies-accept-button', { timeout: 10000 }).click()
     }
 }
 
