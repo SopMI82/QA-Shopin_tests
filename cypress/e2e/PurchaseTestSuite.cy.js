@@ -26,6 +26,15 @@ describe("Ajouter un produit au panier et vérifier le processus de paiement", (
         shopPage.addProductToCart;
         shopPage.openCart;
         cy.reload();
-        shopPage.verifyAddedProduct;
-    }); 
+        shopPage.verifyAddedProduct.should('contain', 'Nike Air Max Plus OG');
+    });
+
+    it("Enlever un article du panier", ()=> {
+        shopPage.goToShoesCategory;
+        shopPage.addProductToCart;
+        shopPage.openCart;
+        cy.reload();
+        shopPage.clickBtnRemoveProductFromCart;
+        shopPage.successfulRemoveFromCartMessage.should('contain', "Your cart is currently empty" )
+    })
 })

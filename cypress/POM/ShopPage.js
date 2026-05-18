@@ -19,8 +19,16 @@ class ShopPage {
     
     get verifyAddedProduct() {
         // Vérifier que l'article ajouté correspond bien à celui attendu
-        return cy.get('.woocommerce-cart-form__cart-item > .product-name').should('contain', 'Nike Air Max Plus OG')
+        return cy.get('.woocommerce-cart-form__cart-item > .product-name')}
+    
+    get clickBtnRemoveProductFromCart() {
+        return cy.xpath('//td[@data-title="Supprimer cet article"]//a[@aria-label="Retirer Nike Air Max Plus OG du panier"]').click()
     }
+    
+    get successfulRemoveFromCartMessage() {
+        return cy.get('.cart-empty')
+    }
+    
 }
 
 export default ShopPage;
